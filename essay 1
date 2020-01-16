@@ -1,0 +1,27 @@
+>#Part 1: record the data 
+>#record river A
+>A = c(0.41,0.58,0.55,0.21,0.09,0.21,0.88,0.73)
+>#record river B
+>B = c(0.72,0.72,0.75,0.04,0.83,0.92,0.08,0.92)
+
+>#Part 2: Null hypothesis 
+>#HO: river a mean chemical content= river b mean chemical content 
+>#HO: there is no difference in chemical content between river A and river B 
+
+>#Part 3: Testing 
+>#run the t test
+>model=t.test(A, B)
+>model
+>#obtain p value
+>model$p.value
+>#obtain t value
+>model$statistic
+>#p value is more than critical value 
+>#difference is not significant 
+>#accept null hypothesis 
+
+>#Part 4: Visualisation
+>#generate boxplot
+>boxplot(list(A=A, B=B),col=c('yellow','green'),ylab='chemical content',xlab='A,B')
+> #generate legend 
+> legend('topright',c(paste('p=',round(model$p.value,digits=6)),paste('t=',round(model$statistic,digits=6))))
