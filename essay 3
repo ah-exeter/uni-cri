@@ -7,3 +7,19 @@
 > #Part 2: Null Hypothesis 
 > #H0: observed=expected 
 > #The frequency of malaria in 2015 follows the same distribution as the distribution of 1995 rates.
+> # Part 3: Testing 
+> model=chisq.test(observed,p=expected/sum(expected))
+> 
+> #obtain chi squared statistic and p value 
+> model$statistic
+X-squared 
+ 17.41637 
+> model$p.value
+[1] 0.04258117
+> #p value= 0.04 
+> #p value is less than the critical value so the null hypothesis can be rejected 
+> 
+> #Part 4: Visualisation
+> barplot(rbind(observed,expected),beside=TRUE,ylab='Malaria rates',col=c('red','blue'))
+> #print statistic on plot 
+> legend('topright',c(paste('p=',round(model$p.value,digits=6)),paste('chi2=',round(model$statistic,digits=6))))
