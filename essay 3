@@ -1,0 +1,9 @@
+> #Part1: Record data 
+> #record observed frequencies 
+> observed=c(25,72,71,52,41,56,68,31,8,6)
+> #record expected frequencies (1995)
+> expected=c(24,91,64,63,42,44,59,21,5,7)
+> 
+> #Part 2: Null Hypothesis 
+> #H0: observed=expected 
+> #The frequency of malaria in 2015 follows the same distribution as the distribution of 1995 rates.
