@@ -1,0 +1,34 @@
+#Part 1: Record data 
+> #record Blood pressure 
+> P=c(132,143,153,162,154,168,137,149,159,128)
+> #record Body weight 
+> W=c(173,184,194,211,196,220,188,188,207,167)
+ 
+> #Part 2: Null Hypothesis 
+> #HO: correlation coeff=0
+> #Blood pressure and Body weight are not correlated 
+
+> #Part 3: Testing 
+> #correlation analysis testing 
+> model=cor.test(P,W)
+> model
+
+> #acquire p value 
+> model$p.value
+[1] 5.855996e-06
+> #p<0.05 
+> #reject null hypothesis 
+> #Blood pressure and Body weight are correlated 
+> 
+> #acquire correlation coeff 
+> model$estimate
+      cor 
+0.9656314 
+> #correlation coeff= 0.97
+> #positive correlation, very strong 
+> 
+> #Part 4: Visualisation 
+> #generate scatterplot 
+> plot(W,P,xlab='Body weight',ylab='Blood pressure',main='Relationship between Body Weight and Blood Pressure',col='red')
+> #print statistic on plot 
+> legend('topleft',c(paste('p=',round(model$p.value,digits=6)),paste('correlation coeff=',round(model$estimate,digits=4))))
