@@ -1,0 +1,37 @@
+> #Part 1: Record Data 
+> #record gene A
+> gA=c(16.15,14.65,11.33,14.26,15.80,12.91,5.46,7.15)
+> #record gene B 
+> gB=c(9.69,9.12,8.83,9.80,10.96,9.82,9.11,9.64)
+> #record gene C
+> gC=c(8.07,9.22,4.42,6.15,9.97,8.56,7.23,6.89)
+ 
+> #HO: mean gene A value= mean gene B value= mean gene C value 
+> #HO: all genes have the same expression level 
+
+> #Part 2: vector generation 
+> #generating observation vector 
+> obs=c(gA,gB,gC)
+> #generating label vector 
+> label=c(rep('gene A',8),rep('gene B',8),rep('gene C',8))
+
+> #Part 3: Testing 
+> #aov and summaary running ANOVA test
+> model=aov(obs~factor(label))
+> model 
+
+> #generate an ANOVA table 
+> stats=summary(model)[{}]
+> stats=summary(model)[[1]]
+> stats
+> #generate p value 
+> #for significance 
+> stats$Pr[1] 
+
+> #HO rejected as p is less than critical value 
+> #there is a signfiicant difference in the levels of gene expression across A, B and C
+> 
+> #Part 4: Visualize data 
+> boxplot(obs~label,col=c('green','pink','orange','blue'),ylab='Gene expression level',xlab='Gene',main='Difference in levels of expression across 3 cancerous genes')
+> #generate legend 
+> legend('topright',paste('p=',round(stats$Pr[1],digits=6)))
